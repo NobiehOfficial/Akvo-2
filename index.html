@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Akvo International - High-performance solar equipment and renewable energy solutions for residential, commercial, and institutional applications in Uganda.">
+    <meta name="keywords"
+        content="solar panels Uganda, solar inverters, solar batteries, solar street lights, solar fridges, solar water heaters, renewable energy Uganda, off-grid solar">
+    <link rel="shortcut icon" type="image/x-icon" href="Assets/Images/fav.png">
+    <title>Solar Equipment & Renewable Energy Solutions - Akvo International</title>
+
+    <!-- Design CSS -->
+    <link rel="stylesheet" href="Assets/CSS/Plugins/fontawesome.css">
+    <link rel="stylesheet" href="Assets/CSS/Plugins/swiper.css">
+    <link rel="stylesheet" href="Assets/CSS/Plugins/metismenu.css">
+    <link rel="stylesheet" href="Assets/CSS/Plugins/magnifying-popup.css">
+    <link rel="stylesheet" href="Assets/CSS/Plugins/odometer.css">
+    <link rel="stylesheet" href="Assets/CSS/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Main.css">
+
+    <!-- Page Specific Styles - Consistent with akvointernational.com -->
+    <style>
+        /* ========================================
+           SOLAR PAGE - AKVO BRAND CONSISTENT
+        ======================================== */
+
+        /* Use Akvo Brand Colors */
+        :root {
+            --akvo-primary: #000051;
+            --akvo-secondary: #1f1f25;
+            --akvo-accent: #82b440;
+            --akvo-body: #5d666f;
+            --akvo-heading: #1c2539;
+            --akvo-white: #fff;
+            --akvo-light-bg: #f8f9fa;
+        }
+
+        /* Page Header Banner - Matching Screenshot Design */
+        .page-banner-area {
+            background: url('Assets/Images/Solar Power Systems.png');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0 150px;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        .page-banner-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+            pointer-events: none;
+        }
+
+        .page-banner-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .page-banner-content .title {
+            font-size: 64px;
+            font-weight: 700;
+            color: var(--akvo-white);
+            margin-bottom: 20px;
+            font-family: "Red Hat Display", serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .page-banner-content .subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--akvo-white);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+        }
+
+        .page-banner-content .description {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 750px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .page-banner-content .hero-cta-btn {
+            display: inline-block;
+            background: var(--akvo-white);
+            color: var(--akvo-primary);
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .page-banner-content .hero-cta-btn:hover {
+            background: var(--akvo-accent);
+            color: var(--akvo-white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(130, 180, 64, 0.3);
+        }
+
+        /* Hero Animation */
+        @keyframes fadeFloatIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-float-in {
+            animation: fadeFloatIn 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+            /* meaningful initial state */
+        }
+
+        /* Section Styling */
+        .akvo-section {
+            padding: 80px 0;
+        }
+
+        .akvo-section.bg-light {
+            background: var(--akvo-light-bg);
+        }
+
+        .akvo-section.bg-dark {
+            background: var(--akvo-primary);
+        }
+
+        /* Section Headers */
+        .section-title-wrapper {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title-wrapper .section-tag {
+            display: inline-block;
+            background: rgba(130, 180, 64, 0.15);
+            color: var(--akvo-accent);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .section-title-wrapper .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--akvo-primary);
+            margin-bottom: 15px;
+            font-family: "Red Hat Display", serif;
+        }
+
+        .bg-dark .section-title-wrapper .section-title {
+            color: var(--akvo-white);
+        }
+
+        .section-title-wrapper .section-desc {
+            font-size: 16px;
+            color: var(--akvo-body);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .bg-dark .section-title-wrapper .section-desc {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Product Cards - Consistent with Akvo style */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .akvo-product-card {
+            background: var(--akvo-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e8e8e8;
+        }
+
+        .akvo-product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--akvo-accent);
+        }
+
+        .akvo-product-card .product-image {
+            height: 240px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .akvo-product-card .product-image img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .akvo-product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .akvo-product-card .product-content {
+            padding: 25px;
+        }
+
+        .akvo-product-card .product-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--akvo-primary);
+            margin-bottom: 12px;
+            font-family: "Red Hat Display", serif;
+        }
+
+        .akvo-product-card .product-desc {
+            font-size: 15px;
+            color: var(--akvo-body);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Dark section cards */
+        .bg-dark .akvo-product-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .bg-dark .akvo-product-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--akvo-accent);
+        }
+
+        .bg-dark .akvo-product-card .product-title {
+            color: var(--akvo-white);
+        }
+
+        .bg-dark .akvo-product-card .product-desc {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .bg-dark .akvo-product-card .product-image {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Akvo Button Styles */
+        .akvo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .akvo-btn.btn-primary {
+            background: var(--akvo-accent);
+            color: var(--akvo-white);
+            border-color: var(--akvo-accent);
+        }
+
+        .akvo-btn.btn-primary:hover {
+            background: #6a9a32;
+            border-color: #6a9a32;
+            transform: translateY(-2px);
+            color: var(--akvo-white);
+        }
+
+        .akvo-btn.btn-outline {
+            background: transparent;
+            color: var(--akvo-accent);
+            border-color: var(--akvo-accent);
+        }
+
+        .akvo-btn.btn-outline:hover {
+            background: var(--akvo-accent);
+            color: var(--akvo-white);
+        }
+
+        .akvo-btn.btn-white {
+            background: var(--akvo-white);
+            color: var(--akvo-primary);
+            border-color: var(--akvo-white);
+        }
+
+        .akvo-btn.btn-white:hover {
+            background: transparent;
+            color: var(--akvo-white);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 60px 0;
+            background: var(--akvo-accent);
+            text-align: center;
+        }
+
+        .cta-section .cta-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--akvo-white);
+            margin-bottom: 15px;
+            font-family: "Red Hat Display", serif;
+        }
+
+        .cta-section .cta-desc {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .akvo-btn.btn-white {
+            background: var(--akvo-white);
+            color: var(--akvo-accent);
+        }
+
+        .cta-section .akvo-btn.btn-white:hover {
+            background: var(--akvo-primary);
+            color: var(--akvo-white);
+            border-color: var(--akvo-primary);
+        }
+
+        /* Why Choose Section */
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-box {
+            background: var(--akvo-white);
+            padding: 35px 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-color: var(--akvo-accent);
+        }
+
+        .feature-box .icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(130, 180, 64, 0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: var(--akvo-accent);
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover .icon {
+            background: var(--akvo-accent);
+            color: var(--akvo-white);
+        }
+
+        .feature-box .title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--akvo-primary);
+            margin-bottom: 12px;
+            font-family: "Red Hat Display", serif;
+        }
+
+        .feature-box .desc {
+            font-size: 14px;
+            color: var(--akvo-body);
+            line-height: 1.6;
+        }
+
+        /* Final CTA */
+        .final-cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--akvo-primary) 0%, #1a1a6e 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .final-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2382b440' fill-opacity='0.05'%3E%3Cpath d='M30 30m-2 0a2 2 0 1 0 4 0 2 2 0 1 0-4 0'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-cta-icon {
+            width: 90px;
+            height: 90px;
+            background: var(--akvo-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 36px;
+            color: var(--akvo-white);
+        }
+
+        .final-cta-title {
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--akvo-white);
+            margin-bottom: 18px;
+            font-family: "Red Hat Display", serif;
+        }
+
+        .final-cta-title span {
+            color: var(--akvo-accent);
+        }
+
+        .final-cta-desc {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 650px;
+            margin: 0 auto 35px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons-row {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-banner-content .title {
+                font-size: 32px;
+            }
+
+            .section-title-wrapper .section-title {
+                font-size: 28px;
+            }
+
+            .final-cta-title {
+                font-size: 28px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .akvo-product-card .product-image {
+                height: 200px;
+            }
+        }
+
+        /* Intro Stats */
+        .intro-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--akvo-accent);
+            font-family: "Red Hat Display", serif;
+        }
+
+        .stat-box .label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Email Capture Section */
+        .email-capture-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .email-capture-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(130, 180, 64, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .email-capture-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (max-width: 991px) {
+            .email-capture-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .email-capture-content .capture-badge {
+            display: inline-block;
+            background: rgba(130, 180, 64, 0.15);
+            color: var(--akvo-accent);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .email-capture-content .capture-badge i {
+            margin-right: 6px;
+        }
+
+        .email-capture-content .capture-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--akvo-primary);
+            margin-bottom: 15px;
+            font-family: "Red Hat Display", serif;
+            line-height: 1.3;
+        }
+
+        .email-capture-content .capture-desc {
+            font-size: 16px;
+            color: var(--akvo-body);
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .email-capture-content .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .email-capture-content .benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            color: var(--akvo-heading);
+            margin-bottom: 12px;
+        }
+
+        .email-capture-content .benefits-list li i {
+            color: var(--akvo-accent);
+            font-size: 16px;
+            width: 24px;
+            height: 24px;
+            background: rgba(130, 180, 64, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+        }
+
+        .email-capture-form-wrapper {
+            background: var(--akvo-white);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .email-capture-form-wrapper .form-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .email-capture-form-wrapper .form-header .form-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(130, 180, 64, 0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+            color: var(--akvo-accent);
+        }
+
+        .email-capture-form-wrapper .form-header h4 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--akvo-primary);
+            margin-bottom: 8px;
+            font-family: "Red Hat Display", serif;
+        }
+
+        .email-capture-form-wrapper .form-header p {
+            font-size: 14px;
+            color: var(--akvo-body);
+            margin: 0;
+        }
+
+        .email-capture-form .form-group {
+            margin-bottom: 18px;
+        }
+
+        .email-capture-form .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--akvo-heading);
+            margin-bottom: 6px;
+        }
+
+        .email-capture-form .form-group input,
+        .email-capture-form .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            color: var(--akvo-heading);
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .email-capture-form .form-group input:focus,
+        .email-capture-form .form-group select:focus {
+            outline: none;
+            border-color: var(--akvo-accent);
+            background: var(--akvo-white);
+            box-shadow: 0 0 0 3px rgba(130, 180, 64, 0.15);
+        }
+
+        .email-capture-form .form-group input::placeholder {
+            color: #aaa;
+        }
+
+        .email-capture-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media (max-width: 576px) {
+            .email-capture-form .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .email-capture-form .submit-btn {
+            width: 100%;
+            padding: 16px 24px;
+            background: var(--akvo-accent);
+            color: var(--akvo-white);
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .email-capture-form .submit-btn:hover {
+            background: #6a9a32;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(130, 180, 64, 0.3);
+        }
+
+        .email-capture-form .privacy-note {
+            font-size: 12px;
+            color: #888;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .email-capture-form .privacy-note i {
+            margin-right: 5px;
+        }
+
+        /* Success Message */
+        .form-success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .form-success-message.show {
+            display: block;
+        }
+
+        .form-success-message .success-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(130, 180, 64, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: var(--akvo-accent);
+        }
+
+        .form-success-message h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--akvo-primary);
+            margin-bottom: 10px;
+        }
+
+        .form-success-message p {
+            font-size: 15px;
+            color: var(--akvo-body);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header-one header--sticky">
+        <div class="header-top-area-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-top-one-wrapper">
+                            <div class="left">
+                                <div class="mail">
+                                    <a href="mailto:info@akvointernational.com"><i class="fal fa-envelope"></i>
+                                        info@akvointernational.com</a>
+                                </div>
+                                <div class="working-time">
+                                    <p><i class="fal fa-phone"></i> +256 393 243403</p>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <ul class="social-wrapper-one">
+                                    <li><a href="https://www.facebook.com/akvointernational" target="_blank"><i
+                                                class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="https://x.com/Akvointltd/" target="_blank"><i
+                                                class="fab fa-twitter"></i></a></li>
+                                    <li><a href="https://instagram.com/akvointernational/" target="_blank"><i
+                                                class="fab fa-instagram"></i></a></li>
+                                    <li><a class="mr--0"
+                                            href="https://www.linkedin.com/company/akvo-international-limited/"
+                                            target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-main-one-wrapper">
+                            <div class="thumbnail">
+                                <a href="../">
+                                    <img src="Assets/Images/logo(1).png" class="logo" alt="akvo-international-logo" />
+                                </a>
+                            </div>
+                            <div class="main-header">
+                                <div class="nav-area">
+                                    <ul class="">
+                                        <li class="main-nav mega-menu project-a-after">
+                                            <a href="../">Home</a>
+                                        </li>
+                                        <li class="main-nav has-dropdown mega-menu">
+                                            <a href="#">Services</a>
+                                            <div class="akvo-mega-menu service-mega-menu-style">
+                                                <div class="wrapper">
+                                                    <div class="container">
+                                                        <div class="row g-5">
+                                                            <div class="col-lg-12">
+                                                                <ul class="mega-menu-item parent-nav">
+                                                                    <li><a href="Irrigation.html">Irrigation</a></li>
+                                                                    <li><a href="Water_Pumps.html">Water Pumps</a></li>
+                                                                    <li><a href="solar.html">Solar Equipment</a></li>
+                                                                    <li><a href="Boreholes.html">Boreholes</a></li>
+                                                                    <li><a href="Generators.html">Generators</a></li>
+                                                                    <li><a href="water_treatment.html">Water
+                                                                            Treatment</a></li>
+                                                                    <li><a href="Swimming_Pool.html">Swimming Pools</a>
+                                                                    </li>
+                                                                    <li><a href="Repairs_&_Maintainance.html">Repairs &
+                                                                            Maintenance</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="main-nav mega-menu"><a href="#">Shop</a></li>
+                                        <li class="main-nav mega-menu"><a href="#">Projects</a></li>
+                                        <li class="main-nav project-a-after"><a href="#">Blog</a></li>
+                                        <li class="main-nav"><a href="../contacts/">Contact</a></li>
+                                    </ul>
+                                </div>
+                                <div class="button-area">
+                                    <a href="../lorentz-pump-selector/"
+                                        class="akvo-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btn">
+                                        Size Pump</a>
+                                    <button id="menu-btn" class="menu-btn menu ml--20 ml_sm--5">
+                                        <img class="menu-light" src="Assets/Images/icons/01.svg" alt="Menu-icon">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner-area">
+        <div class="container">
+            <div class="page-banner-content">
+                <h1 class="title animate-float-in">Solar Equipment</h1>
+                <p class="subtitle animate-float-in" style="animation-delay: 0.2s;">Solar Panels, Lights, Batteries, &
+                    Inverters</p>
+                <p class="description animate-float-in" style="animation-delay: 0.4s;">
+                    Power your home, farm, or business with reliable solar equipment. We supply high-quality panels,
+                    energy storage systems, lighting, and inverters for clean, efficient energy solutions.
+                </p>
+                <a href="#products" class="hero-cta-btn animate-float-in" style="animation-delay: 0.6s;">View
+                    Equipment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section A: Solar Power Systems & Components -->
+    <section class="akvo-section bg-light" id="products">
+        <div class="container">
+            <div class="section-title-wrapper">
+
+                <h2 class="section-title">Solar Power Systems & Components</h2>
+                <p class="section-desc">
+                    High-quality solar components designed for durability and optimal performance in African operating
+                    conditions.
+                </p>
+            </div>
+
+            <div class="product-grid">
+                <!-- Solar Panels -->
+                <div class="akvo-product-card">
+                    <div class="product-image">
+                        <img src="Assets/Images/solar_panels.png" alt="Solar Panels">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Solar Panels</h3>
+                        <p class="product-desc">
+                            High-efficiency solar panels designed to maximise energy generation even in low-light
+                            conditions. Built for durability and long service life.
+                        </p>
+                        <a href="mailto:info@akvointernational.com?subject=Inquiry%20about%20Solar%20Panels"
+                            class="akvo-btn btn-primary">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Hybrid & Off-Grid Inverters -->
+                <div class="akvo-product-card">
+                    <div class="product-image">
+                        <img src="Assets/Images/hybrid_inverter.png" alt="Hybrid Inverter">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Hybrid & Off-Grid Inverters</h3>
+                        <p class="product-desc">
+                            Advanced inverters that intelligently manage power from solar, batteries, and the grid.
+                            Ensures stable electricity and seamless switching.
+                        </p>
+                        <a href="mailto:info@akvointernational.com?subject=Inquiry%20about%20Inverters"
+                            class="akvo-btn btn-primary">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Inverter Chargers -->
+                <div class="akvo-product-card">
+                    <div class="product-image">
+                        <img src="Assets/Images/inverter_charger.png" alt="Inverter Charger">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Inverter Chargers</h3>
+                        <p class="product-desc">
+                            Reliable inverter chargers that combine power conversion and battery charging in one unit
+                            for uninterrupted power and improved efficiency.
+                        </p>
+                        <a href="mailto:info@akvointernational.com?subject=Inquiry%20about%20Inverter%20Chargers"
+                            class="akvo-btn btn-primary">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Charge Controllers -->
+                <div class="akvo-product-card">
+                    <div class="product-image">
+                        <img src="Assets/Images/charge_controller.png" alt="Charge Controller">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Charge Controllers</h3>
+                        <p class="product-desc">
+                            High-performance charge controllers that regulate power flow, protect batteries from
+                            overcharging, and maximise system efficiency.
+                        </p>
+                        <a href="mailto:info@akvointernational.com?subject=Inquiry%20about%20Charge%20Controllers"
+                            class="akvo-btn btn-primary">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Solar Batteries -->
+                <div class="akvo-product-card">
+                    <div class="product-image">
+                        <img src="Assets/Images/solar_batteries.png" alt="Solar Batteries">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Solar Batteries</h3>
+                        <p class="product-desc">
+                            Long-lasting solar batteries designed for safe, dependable energy storage. Ensures
+                            continuous power during nights or outages.
+                        </p>
+                        <a href="mailto:info@akvointernational.com?subject=Inquiry%20about%20Solar%20Batteries"
+                            class="akvo-btn btn-primary">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Connection & Protection Accessories -->
+                <div class="akvo-product-card">
+                    <div class="product-image">
+                        <img src="Assets/Images/connection_accessories.png" alt="Connection Accessories">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Connection & Protection Accessories</h3>
+                        <p class="product-desc">
+                            Quality cables, connectors, breakers, and surge protectors for safe and compliant solar
+                            installations.
+                        </p>
+                        <a href="mailto:info@akvointernational.com?subject=Inquiry%20about%20Solar%20Accessories"
+                            class="akvo-btn btn-primary">Request Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Solar Lighting & Distributed Energy -->
+    <section class="akvo-section bg-light">
+        <div class="container">
+            <div class="section-title-wrapper">
+
+                <h2 class="section-title">Solar Lighting & Distributed Energy Solutions</h2>
+                <p class="section-desc">
+                    Reliable, low-maintenance solar lighting and power solutions for homes, institutions, and public
+                    spaces.
+                </p>
+            </div>
+
+            <div class="product-grid">
+                <!-- Solar Street Lighting -->
+                <div class="akvo-product-card">
+                    <div class="product-image">
+                        <img src="Assets/Images/Security Lights.png" alt="Solar Street Lighting">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Solar Street Lighting</h3>
+                        <p class="product-desc">
+                            High-performance solar street lights that provide reliable illumination for roads,
+                            institutions, and public spaces with low maintenance.
+                        </p>
+                        <a href="mailto:info@akvointernational.com?subject=Inquiry%20about%20Solar%20Street%20Lights"
+                            class="akvo-btn btn-primary">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Solar Home Kits -->
+                <div class="akvo-product-card">
+                    <div class="product-image">
+                        <img src="Assets/Images/Solar Lighting Kits.png" alt="Solar Home Kits">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Solar Home Kits</h3>
+                        <p class="product-desc">
+                            Compact, all-in-one solar solutions for lighting, phone charging, and small appliances.
+                            Ideal for affordable off-grid energy access.
+                        </p>
+                        <a href="mailto:info@akvointernational.com?subject=Inquiry%20about%20Solar%20Home%20Kits"
+                            class="akvo-btn btn-primary">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Solar Security Lights -->
+                <div class="akvo-product-card">
+                    <div class="product-image">
+                        <img src="Assets/Images/Security Lights (2).png" alt="Solar Security Lights">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Solar Security Lights</h3>
+                        <p class="product-desc">
+                            Motion-activated and dusk-to-dawn solar security lights that enhance safety. Easy to
+                            install and energy efficient.
+                        </p>
+                        <a href="mailto:info@akvointernational.com?subject=Inquiry%20about%20Solar%20Security%20Lights"
+                            class="akvo-btn btn-primary">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Solar Cameras -->
+                <div class="akvo-product-card">
+                    <div class="product-image">
+                        <img src="Assets/Images/Security Lights (3).png" alt="Solar Cameras">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Solar Cameras</h3>
+                        <p class="product-desc">
+                            Solar-powered surveillance cameras for continuous security monitoring without grid power.
+                            Ideal for remote locations.
+                        </p>
+                        <a href="mailto:info@akvointernational.com?subject=Inquiry%20about%20Solar%20Cameras"
+                            class="akvo-btn btn-primary">Request Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA: Get Off-Grid Solutions -->
+    <section class="cta-section" style="background: #000051;">
+        <div class="container">
+            <h2 class="cta-title">Ready to Go Off-Grid?</h2>
+            <p class="cta-desc">
+                Explore our complete range of off-grid solar solutions designed for reliable performance in areas
+                without grid access.
+            </p>
+            <a href="mailto:info@akvointernational.com?subject=Off-Grid%20Solar%20Solutions" class="akvo-btn btn-white"
+                style="color: #000051;">
+                <i class="fas fa-bolt"></i> Get Off-Grid Solutions
+            </a>
+        </div>
+    </section>
+
+    <!-- Section C: Solar Appliances -->
+    <section class="akvo-section bg-light">
+        <div class="container">
+            <div class="section-title-wrapper">
+
+                <h2 class="section-title">Solar Appliances</h2>
+                <p class="section-desc">
+                    Energy-efficient solar-powered appliances that reduce electricity costs and promote sustainable
+                    living.
+                </p>
+            </div>
+
+            <div class="product-grid" style="max-width: 800px; margin: 0 auto;">
+                <!-- Solar Refrigerators -->
+                <div class="akvo-product-card">
+                    <div class="product-image">
+                        <img src="Assets/Images/Solar Fridges.png" alt="Solar Refrigerators">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Solar Refrigerators</h3>
+                        <p class="product-desc">
+                            Energy-efficient solar fridges for homes, health facilities, and commercial use. Reliable
+                            cooling with reduced electricity costs.
+                        </p>
+                        <a href="mailto:info@akvointernational.com?subject=Inquiry%20about%20Solar%20Refrigerators"
+                            class="akvo-btn btn-primary">Request Quote</a>
+                    </div>
+                </div>
+
+                <!-- Solar Water Heaters -->
+                <div class="akvo-product-card">
+                    <div class="product-image">
+                        <img src="Assets/Images/Water Heater.png" alt="Solar Water Heaters">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Solar Water Heaters</h3>
+                        <p class="product-desc">
+                            High-efficiency solar water heating systems using clean, renewable energy. Reduces energy
+                            bills and carbon emissions.
+                        </p>
+                        <a href="mailto:info@akvointernational.com?subject=Inquiry%20about%20Solar%20Water%20Heaters"
+                            class="akvo-btn btn-primary">Request Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Why Choose Akvo Section -->
+    <section class="akvo-section">
+        <div class="container">
+            <div class="section-title-wrapper">
+
+                <h2 class="section-title">Why Choose Akvo International</h2>
+                <p class="section-desc">
+                    We're committed to delivering exceptional solar solutions backed by expertise, quality, and
+                    comprehensive support.
+                </p>
+            </div>
+
+            <div class="why-choose-grid">
+                <div class="feature-box">
+                    <div class="icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="title">Proven Expertise</h3>
+                    <p class="desc">
+                        Years of experience in solar and renewable energy solutions across residential, commercial, and
+                        institutional projects.
+                    </p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="title">Quality Equipment</h3>
+                    <p class="desc">
+                        High-quality equipment rigorously tested for African operating conditions, ensuring durability
+                        and optimal performance.
+                    </p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="icon">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </div>
+                    <h3 class="title">Scalable Solutions</h3>
+                    <p class="desc">
+                        Flexible systems that grow with your needs—from small home setups to large commercial
+                        installations.
+                    </p>
+                </div>
+
+                <div class="feature-box">
+                    <div class="icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="title">End-to-End Support</h3>
+                    <p class="desc">
+                        Comprehensive support from initial system design through installation, commissioning, and
+                        ongoing maintenance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Capture Section -->
+    <section class="email-capture-section" id="newsletter">
+        <div class="container">
+            <div class="email-capture-wrapper">
+                <!-- Left Content -->
+                <div class="email-capture-content">
+                    <span class="capture-badge"><i class="fas fa-gift"></i> Free Resource</span>
+                    <h2 class="capture-title">Get Your Free Solar Buying Guide</h2>
+                    <p class="capture-desc">
+                        Download our comprehensive guide to help you make informed decisions about solar equipment.
+                        Learn everything you need to know before investing in solar energy.
+                    </p>
+                    <ul class="benefits-list">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>How to size your solar system correctly</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Understanding solar panels, inverters & batteries</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Cost breakdown and ROI calculations</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Maintenance tips for optimal performance</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Exclusive deals for newsletter subscribers</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right Form -->
+                <div class="email-capture-form-wrapper">
+                    <div class="form-header">
+                        <div class="form-icon">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <h4>Subscribe & Download</h4>
+                        <p>Fill in your details to receive the free guide</p>
+                    </div>
+
+                    <form class="email-capture-form" id="solarNewsletterForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="emailAddress">Email Address</label>
+                            <input type="email" id="emailAddress" name="email" placeholder="john@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number (Optional)</label>
+                            <input type="tel" id="phoneNumber" name="phone" placeholder="+256 700 000 000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="solarInterest">What interests you most?</label>
+                            <select id="solarInterest" name="interest">
+                                <option value="">Select an option...</option>
+                                <option value="home-solar">Home Solar System</option>
+                                <option value="commercial-solar">Commercial/Business Solar</option>
+                                <option value="solar-water-pumping">Solar Water Pumping</option>
+                                <option value="solar-street-lights">Solar Street Lighting</option>
+                                <option value="solar-appliances">Solar Appliances</option>
+                                <option value="other">Other / Just Exploring</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-download"></i> Get Free Guide
+                        </button>
+
+                        <p class="privacy-note">
+                            <i class="fas fa-lock"></i> We respect your privacy. Unsubscribe anytime.
+                        </p>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div class="form-success-message" id="formSuccessMessage">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4>Thank You!</h4>
+                        <p>Your free Solar Buying Guide is on its way to your inbox. Check your email shortly!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA: Power Your Future -->
+    <section class="final-cta-section">
+        <div class="container">
+            <div class="final-cta-content">
+                <div class="final-cta-icon">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <h2 class="final-cta-title">Power Your Future with <span>Solar</span></h2>
+                <p class="final-cta-desc">
+                    Whether you are investing in off-grid solar systems, hybrid solar solutions, or solar-powered
+                    appliances, Akvo International is your trusted partner for clean and reliable energy.
+                </p>
+                <div class="cta-buttons-row">
+                    <a href="#" class="akvo-btn btn-primary" style="background: #82b440; border-color: #82b440;">
+                        <i class="fas fa-download"></i> Download Product Catalogue
+                    </a>
+                    <a href="../contacts/" class="akvo-btn btn-outline" style="color: #fff; border-color: #fff;">
+                        <i class="fas fa-phone"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Partners -->
+    <div class="akvo-trusted-client akvo-section-gapBottom pt--40">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title-area-client-client text-center">
+                        <p class="client-title">Our Trusted Partners</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="client-wrapper-one">
+                    <a href="#"><img src="Assets/Images/partners/grundfos.png" alt="grundfos-uganda-akvo"></a>
+                    <a href="#"><img src="Assets/Images/partners/genvik.png" alt="genvik-uganda-akvo"></a>
+                    <a href="#"><img src="Assets/Images/partners/lorentz.png" alt="lorentz-uganda-akvo"></a>
+                    <a href="#"><img src="Assets/Images/partners/solarborn.png" alt="solarborn-uganda-akvo"></a>
+                    <a href="#"><img src="Assets/Images/partners/genvik.png" alt="genvik-uganda-akvo"></a>
+                    <a href="#"><img src="Assets/Images/partners/jain.png" alt="jain-uganda-akvo"></a>
+                    <a href="#"><img src="Assets/Images/partners/yuzuak.png" alt="yuzuak-uganda-akvo"></a>
+                    <a href="#"><img src="Assets/Images/partners/launtop.png" alt="launtop-uganda-akvo"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="akvo-footer-area footer-two mt-dec-footer-map bg-footer-two bg_image">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="map-area-main-wrapper">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="map-area-main-footer-two">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7481953559336!2d32.6391716!3d0.339702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177db98929f6d673%3A0x4531b4e262de658d!2sThe%20Irrigation%20Hub%20-%20Akvo%20International%20Limited!5e0!3m2!1sen!2sug!4v1744113724026!5m2!1sen!2sug"
+                                        width="625" height="625" style="border:0;" allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="map-information-2-footer">
+                                    <h5 class="title-main quicksand-regular">Contact Us</h5>
+                                    <img src="Assets/Images/footer/02.svg" alt="line" class="line">
+                                    <div class="contact-information-main-wrapper">
+                                        <div class="signle-contact-information">
+                                            <div class="icon">
+                                                <i class="fa-solid fa-phone"></i>
+                                            </div>
+                                            <div class="information-wrapper">
+                                                <span>Call us</span>
+                                                <a href="tel:+256393243403">
+                                                    <h6 class="title">+256 393 243403</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="signle-contact-information">
+                                            <div class="icon">
+                                                <i class="fa-regular fa-envelope"></i>
+                                            </div>
+                                            <div class="information-wrapper">
+                                                <span>Email us</span>
+                                                <a href="mailto:info@akvointernational.com">
+                                                    <h6 class="title">info@akvointernational.com</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="signle-contact-information">
+                                            <div class="icon">
+                                                <i class="fa-sharp fa-solid fa-location-dot"></i>
+                                            </div>
+                                            <div class="information-wrapper">
+                                                <span>Address</span>
+                                                <a href="#">
+                                                    <h6 class="title">
+                                                        <span>Plot 960 Kireka-Mutungo Rd</span>
+                                                        <span>P.O Box 70959 Clock Tower</span>
+                                                    </h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <style>
+                /* Custom Footer Styling */
+                .footer-bottom-container {
+                    background-color: var(--akvo-primary);
+                    border-radius: 12px;
+                    padding: 60px 50px;
+                    color: #fff;
+                    margin-bottom: 50px;
+                }
+
+                .footer-col-title {
+                    font-family: "Red Hat Display", serif;
+                    font-size: 24px;
+                    color: #fff;
+                    margin-bottom: 20px;
+                    font-weight: 700;
+                }
+
+                .title-underline {
+                    width: 40px;
+                    height: 2px;
+                    background-color: #fff;
+                    opacity: 0.3;
+                    margin-bottom: 30px;
+                }
+
+                /* Opening Hours */
+                .opening-hours-list {
+                    width: 100%;
+                }
+
+                .opening-row {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 15px;
+                    font-size: 15px;
+                    color: rgba(255, 255, 255, 0.85);
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                    padding-bottom: 10px;
+                }
+
+                .opening-row:last-child {
+                    border-bottom: none;
+                }
+
+                .contact-btn-footer {
+                    background: #fff;
+                    color: var(--akvo-primary);
+                    padding: 12px 25px;
+                    border-radius: 6px;
+                    font-weight: 600;
+                    display: inline-block;
+                    margin-top: 15px;
+                    text-decoration: none;
+                    transition: 0.3s;
+                }
+
+                .contact-btn-footer:hover {
+                    background: var(--akvo-accent);
+                    color: #fff;
+                }
+
+                /* Quick Links */
+                .quick-links-row {
+                    display: flex;
+                    gap: 30px;
+                }
+
+                .quick-links-col {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                }
+
+                .footer-link {
+                    color: rgba(255, 255, 255, 0.7);
+                    text-decoration: none;
+                    font-size: 15px;
+                    transition: 0.3s;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+
+                .footer-link:hover {
+                    color: var(--akvo-accent);
+                    padding-left: 5px;
+                }
+
+                .footer-link i {
+                    font-size: 12px;
+                }
+
+                /* Newsletter */
+                .newsletter-text {
+                    color: rgba(255, 255, 255, 0.7);
+                    font-size: 15px;
+                    margin-bottom: 25px;
+                    line-height: 1.6;
+                }
+
+                .footer-subscribe-form {
+                    position: relative;
+                }
+
+                .footer-subscribe-form input {
+                    width: 100%;
+                    padding: 16px 60px 16px 20px;
+                    border-radius: 6px;
+                    border: none;
+                    outline: none;
+                    font-size: 14px;
+                }
+
+                .footer-subscribe-form button {
+                    position: absolute;
+                    right: 6px;
+                    top: 6px;
+                    bottom: 6px;
+                    width: 45px;
+                    background: #000033;
+                    color: #fff;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    transition: 0.3s;
+                }
+
+                .footer-subscribe-form button:hover {
+                    background: var(--akvo-accent);
+                }
+
+                @media (max-width: 991px) {
+                    .footer-bottom-container {
+                        padding: 40px 30px;
+                    }
+
+                    .quick-links-row {
+                        flex-direction: column;
+                        gap: 0;
+                    }
+
+                    .footer-mb-40 {
+                        margin-bottom: 40px;
+                    }
+                }
+            </style>
+
+            <div class="footer-bottom-container">
+                <div class="row">
+                    <!-- Column 1: Opening Hours -->
+                    <div class="col-lg-4 col-md-12 footer-mb-40">
+                        <h4 class="footer-col-title">Opening Hours</h4>
+                        <div class="title-underline"></div>
+
+                        <div class="opening-hours-list">
+                            <div class="opening-row">
+                                <span>Monday - Friday</span>
+                                <span>08:00 - 17:00 Hrs</span>
+                            </div>
+                            <div class="opening-row">
+                                <span>Saturday</span>
+                                <span>08:00 - 15:00 Hrs</span>
+                            </div>
+                            <div class="opening-row">
+                                <span>Sunday</span>
+                                <span>Closed</span>
+                            </div>
+                        </div>
+                        <a href="../contacts/" class="contact-btn-footer">Contact Us</a>
+                    </div>
+
+                    <!-- Column 2: Quick Links -->
+                    <div class="col-lg-5 col-md-12 footer-mb-40">
+                        <h4 class="footer-col-title">Quick Links</h4>
+                        <div class="title-underline"></div>
+
+                        <div class="quick-links-row">
+                            <div class="quick-links-col">
+                                <a href="#" class="footer-link"><i class="fas fa-arrow-right"></i> Shop</a>
+                                <a href="#" class="footer-link"><i class="fas fa-arrow-right"></i> Blog</a>
+                                <a href="#" class="footer-link"><i class="fas fa-arrow-right"></i> About Us</a>
+                                <a href="#" class="footer-link"><i class="fas fa-arrow-right"></i> Projects</a>
+                                <a href="#" class="footer-link"><i class="fas fa-arrow-right"></i> Services</a>
+                            </div>
+                            <div class="quick-links-col">
+                                <a href="Irrigation.html" class="footer-link"><i class="fas fa-arrow-right"></i>
+                                    Irrigation</a>
+                                <a href="Water_Pumps.html" class="footer-link"><i class="fas fa-arrow-right"></i> Water
+                                    Pumps</a>
+                                <a href="solar.html" class="footer-link"><i class="fas fa-arrow-right"></i> Solar
+                                    Equipment</a>
+                                <a href="Boreholes.html" class="footer-link"><i class="fas fa-arrow-right"></i>
+                                    Boreholes</a>
+                                <a href="Generators.html" class="footer-link"><i class="fas fa-arrow-right"></i>
+                                    Generators</a>
+                                <a href="water_treatment.html" class="footer-link"><i class="fas fa-arrow-right"></i>
+                                    Water Treatments</a>
+                                <a href="Repairs_&_Maintainance.html" class="footer-link"><i
+                                        class="fas fa-arrow-right"></i> Repairs & Maintenance</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Get Updates -->
+                    <div class="col-lg-3 col-md-12">
+                        <h4 class="footer-col-title">Get Updates</h4>
+                        <div class="title-underline"></div>
+
+                        <p class="newsletter-text">
+                            Subscribe to our Newsletter. We promise not to spam you.
+                        </p>
+
+                        <form class="footer-subscribe-form">
+                            <input type="email" placeholder="Enter Email Address" required>
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="akvo-copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="text-center">
+                            <p>&copy; Copyright
+                                <script>document.write(new Date().getFullYear())</script>. All rights reserved. Akvo
+                                International Ltd
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar and Mobile Menu -->
+    <div id="side-bar" class="side-bar header-two">
+        <button class="close-icon-menu"><i class="far fa-times"></i></button>
+        <div class="akvo-sidebar-menu-desktop">
+            <a class="logo-1" href="../"><img class="logo" src="Assets/Images/logo(1).png"
+                    alt="akvo-international-logo"></a>
+            <div class="body d-none d-xl-block">
+                <p class="disc align-justify">
+                    We deliver sustainable water and energy solutions across Uganda, with a focus on irrigation, clean
+                    water, and renewable energy.
+                </p>
+                <div class="get-in-touch">
+                    <div class="h6 title">Get In Touch</div>
+                    <div class="wrapper">
+                        <div class="single">
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+256393243403">0393 243 403</a>
+                        </div>
+                        <div class="single">
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/256708068655" target="_blank">0708 068 655</a>
+                        </div>
+                        <div class="single">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@akvointernational.com">info@akvointernational.com</a>
+                        </div>
+                        <div class="single">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <a href="#">Plot 960 Kireka-Mutungo Rd</a>
+                        </div>
+                    </div>
+                    <div class="social-wrapper-two menu">
+                        <a href="https://x.com/Akvointltd/" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/akvointernational" target="_blank"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/akvointernational/" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/akvo-international-limited/" target="_blank"><i
+                                class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu d-block d-xl-none">
+            <nav class="nav-main mainmenu-nav mt--30">
+                <ul class="mainmenu metismenu" id="mobile-menu-active">
+                    <li><a href="../" class="main">Home</a></li>
+                    <li class="has-droupdown">
+                        <a href="#" class="main">Services</a>
+                        <ul class="submenu mm-collapse">
+                            <li><a href="Irrigation.html">Irrigation</a></li>
+                            <li><a href="Water_Pumps.html">Water Pumps</a></li>
+                            <li><a href="solar.html">Solar Equipment</a></li>
+                            <li><a href="Boreholes.html">Boreholes</a></li>
+                            <li><a href="Generators.html">Generators</a></li>
+                            <li><a href="water_treatment.html">Water Treatment</a></li>
+                            <li><a href="Swimming_Pool.html">Swimming Pools</a></li>
+                            <li><a href="Repairs_&_Maintainance.html">Repairs & Maintenance</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="main">Shop</a></li>
+                    <li><a href="#" class="main">Projects</a></li>
+                    <li><a href="#" class="main">Blog</a></li>
+                    <li><a href="../contacts/" class="main">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Progress Wrap -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+                style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;">
+            </path>
+        </svg>
+    </div>
+
+    <!-- Scripts -->
+    <script src="Assets/Js/plugins/jquery.js"></script>
+    <script src="Assets/Js/plugins/odometer.js"></script>
+    <script src="Assets/Js/plugins/jquery-appear.js"></script>
+    <script src="Assets/Js/plugins/gsap.js"></script>
+    <script src="Assets/Js/plugins/split-text.js"></script>
+    <script src="Assets/Js/plugins/scroll-trigger.js"></script>
+    <script src="Assets/Js/plugins/smooth-scroll.js"></script>
+    <script src="Assets/Js/plugins/metismenu.js"></script>
+    <script src="Assets/Js/plugins/popup.js"></script>
+    <script src="Assets/Js/vendor/bootstrap.min.js"></script>
+    <script src="Assets/Js/plugins/swiper.js"></script>
+    <script src="Assets/Js/plugins/contact.form.js"></script>
+    <script src="Assets/Js/main.js"></script>
+    <script src="index.js"></script>
+
+    <!-- Email Capture Form Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('solarNewsletterForm');
+            const successMessage = document.getElementById('formSuccessMessage');
+
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // Get form data
+                    const formData = {
+                        firstName: document.getElementById('firstName').value,
+                        lastName: document.getElementById('lastName').value,
+                        email: document.getElementById('emailAddress').value,
+                        phone: document.getElementById('phoneNumber').value,
+                        interest: document.getElementById('solarInterest').value,
+                        source: 'solar-page-newsletter',
+                        timestamp: new Date().toISOString()
+                    };
+
+                    // Save to localStorage (for demo purposes)
+                    // In production, you would send this to your backend/email service
+                    let subscribers = JSON.parse(localStorage.getItem('akvo_solar_subscribers') || '[]');
+                    subscribers.push(formData);
+                    localStorage.setItem('akvo_solar_subscribers', JSON.stringify(subscribers));
+
+                    // Log for debugging
+                    console.log('New solar newsletter subscriber:', formData);
+
+                    // Hide form and show success message
+                    form.style.display = 'none';
+                    document.querySelector('.form-header').style.display = 'none';
+                    successMessage.classList.add('show');
+
+                    // Optional: Send data to server via fetch
+                    // Uncomment and configure this for production use
+                    /*
+                    fetch('YOUR_API_ENDPOINT', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Success:', data);
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+                    */
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
