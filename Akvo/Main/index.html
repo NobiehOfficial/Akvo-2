@@ -1,0 +1,1124 @@
+<?php
+    $config = include('./includes/config.php');
+
+try {
+    $pdo = new PDO($config['dsn'], $config['user'], $config['pass'], $config['options']);
+
+    $stmt = $pdo->prepare('SELECT * FROM projects ORDER BY created_at DESC LIMIT 4');
+    $stmt->execute();
+    $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    error_log("Database error: " . $e->getMessage());
+    echo "Error while retrieving data. Contact admin.";
+    exit;
+}
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Akvo International - For Quality Water & Energy Solutions in Uganda.">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
+    <title>Irrigation, Water & Energy Solutions - Akvo International</title>
+    <link rel="stylesheet" href="assets/css/plugins/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/plugins/swiper.css">
+    <link rel="stylesheet" href="assets/css/plugins/metismenu.css">
+    <link rel="stylesheet" href="assets/css/plugins/magnifying-popup.css">
+    <link rel="stylesheet" href="assets/css/plugins/odometer.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="header-one header--sticky">
+        <div class="header-top-area-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-top-one-wrapper">
+                            <div class="left">
+                                <div class="mail">
+                                    <a href="mailto:info@akvointernational.com"><i class="fal fa-envelope"></i>
+                                        info@akvointernational.com</a>
+                                </div>
+                                <div class="working-time">
+                                    <p><i class="fal fa-phone"></i> +256 393 243403</p>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <ul class="social-wrapper-one">
+                                    <li><a href="https://www.facebook.com/akvointernational" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="https://x.com/Akvointltd/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="https://instagram.com/akvointernational/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a class="mr--0" href="https://www.linkedin.com/company/akvo-international-limited/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header-main-one-wrapper">
+                            <div class="thumbnail">
+                                <a href="./">
+                                    <img
+                                        src="assets/images/logo/logo.png"
+                                        class="logo"
+                                        alt="akvo-international-logo" />
+                                </a>
+                            </div>
+                            <div class="main-header">
+                                <div class="nav-area">
+                                    <ul class="">
+                                        <li class="main-nav mega-menu project-a-after">
+                                            <a href="./">Home</a>
+                                        </li>
+                                        <li class="main-nav has-dropdown mega-menu">
+                                            <a href="#">Services</a>
+                                            <div class="akvo-mega-menu service-mega-menu-style">
+                                                <div class="wrapper">
+                                                    <div class="container">
+                                                        <div class="row g-5">
+                                                            <div class="col-lg-4">
+                                                                <ul class="mega-menu-item parent-nav">
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="single-service-menu">
+                                                                                <div class="icon">
+                                                                                    <img src="assets/images/service/irrigation.svg" alt="service">
+                                                                                </div>
+                                                                                <div class="info">
+                                                                                    <h5 class="title">Irrigation</h5>
+                                                                                    <p class="details">
+                                                                                        Drip, Sprinkler, Drag Hose, Landscape, Irriforce, Center Pivot
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="single-service-menu">
+                                                                                <div class="icon">
+                                                                                    <img src="assets/images/service/water-pumps.png" alt="service">
+                                                                                </div>
+                                                                                <div class="info">
+                                                                                    <h5 class="title">Water Pumps</h5>
+                                                                                    <p class="details">
+                                                                                        Submersible, Surface, Booster, Solar, Dosing, & Pressure Pumps.
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="single-service-menu">
+                                                                                <div class="icon">
+                                                                                    <img src="assets/images/service/solar-equipment.png" alt="service">
+                                                                                </div>
+                                                                                <div class="info">
+                                                                                    <h5 class="title">Solar Equipment</h5>
+                                                                                    <p class="details">
+                                                                                        Panels, Inverters, Controllers, Batteries, Lights, & Off-Grid Kits.
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <ul class="mega-menu-item parent-nav">
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="single-service-menu">
+                                                                                <div class="icon">
+                                                                                    <img src="assets/images/service/boreholes.png" alt="service">
+                                                                                </div>
+                                                                                <div class="info">
+                                                                                    <h5 class="title">Boreholes</h5>
+                                                                                    <p class="details">
+                                                                                        Drilling, Casing, Pumping, Testing, Installation, & Maintenance.
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="single-service-menu">
+                                                                                <div class="icon">
+                                                                                    <img src="assets/images/service/generators.png" alt="service">
+                                                                                </div>
+                                                                                <div class="info">
+                                                                                    <h5 class="title">Generators</h5>
+                                                                                    <p class="details">
+                                                                                        Diesel, Petrol, Solar Backup, Portable, Industrial, & Silent.
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="single-service-menu">
+                                                                                <div class="icon">
+                                                                                    <img src="assets/images/service/water-treatment.png" alt="service">
+                                                                                </div>
+                                                                                <div class="info">
+                                                                                    <h5 class="title">Water Treatment</h5>
+                                                                                    <p class="details">
+                                                                                        Filtration, UV, Reverse Osmosis, Dosing, Softening, & Purification.
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <ul class="mega-menu-item parent-nav">
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="single-service-menu">
+                                                                                <div class="icon">
+                                                                                    <img src="assets/images/service/swimming-pools.png" alt="service">
+                                                                                </div>
+                                                                                <div class="info">
+                                                                                    <h5 class="title">Swimming Pools</h5>
+                                                                                    <p class="details">
+                                                                                        Pumps, Filters, Heaters, Chlorinators, Skimmers, & Cleaners.
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="single-service-menu">
+                                                                                <div class="icon">
+                                                                                    <img src="assets/images/service/repairs.png" alt="service">
+                                                                                </div>
+                                                                                <div class="info">
+                                                                                    <h5 class="title">Repairs & Maintenance</h5>
+                                                                                    <p class="details">
+                                                                                        State-of-the-art Workshop & Technicians
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="main-nav mega-menu">
+                                            <a href="#">Shop</a>
+                                        </li>
+                                        <li class="main-nav mega-menu">
+                                            <a href="#">Projects</a>
+                                        </li>
+                                        <li class="main-nav project-a-after">
+                                            <a href="#">Blog</a>
+                                        </li>
+                                        <li class="main-nav"><a href="./contacts/">Contact</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- Loader -->
+                                <div class="loader-wrapper">
+                                    <div class="loader">
+                                        <div class="loader-inner">
+                                            <div class="loader-spinner"></div>
+                                            <img src="./assets/images/logo/logo.png" alt="Logo" class="loader-logo" />
+                                        </div>
+                                    </div>
+                                    <div class="loader-section section-left"></div>
+                                    <div class="loader-section section-right"></div>
+                                </div>
+
+                                <div class="button-area">
+                                    <!-- <button class="search" id="search"><i class="far fa-search"></i></button> -->
+                                     <a href="./lorentz-pump-selector/" class="akvo-btn btn-primary ml--20 ml_sm--5 header-one-btn quote-btn">
+                                         Size Pump</a>
+                                    <button id="menu-btn" class="menu-btn menu ml--20 ml_sm--5">
+                                        <img class="menu-light" src="assets/images/icons/01.svg" alt="Menu-icon">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="banner-swiper-two">
+        <div class="swiper mySwiper-banner-two">
+            <div class="swiper-wrapper">
+                <!-- Irrigation -->
+                <div class="swiper-slide">
+                    <div class="akvo-banner-area-two two akvo-section-gap bg_image">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="banner-inner-two-content">
+                                        <h1 class="title">Irrigation Solutions<br> </h1>
+                                        <p class="pre-title"><span>Agricultural & Landscape</span></p>
+                                        <p class="disc">
+                                            Transforming agriculture with tailored irrigation solutions. Efficient, sustainable, and designed to maximize your yield while conserving water.
+                                        </p>
+                                        <a href="#" class="akvo-btn btn-primary btn-white">Explore Solutions</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  banner area end -->
+                </div>
+                <!-- Water Pumps -->
+                <div class="swiper-slide">
+                    <!--  banner area start -->
+                    <div class="akvo-banner-area-two three akvo-section-gap bg_image">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="banner-inner-two-content">
+                                        <h1 class="title">Water Pumps<br></h1>
+                                        <p class="pre-title"><span>Surface, Submersible & Booster Pumps</span></p>
+                                        <p class="disc">
+                                            Delivering powerful and reliable water pumping solutions for homes, farms, and industries.
+                                            Engineered for efficiency, durability, and maximum water flow.
+
+                                        </p>
+                                        <a href="#" class="akvo-btn btn-primary btn-white">Explorer Pumps</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  banner area end -->
+                </div>
+                <!-- Boreholes -->
+                <div class="swiper-slide">
+                    <!--  banner area start -->
+                    <div class="akvo-banner-area-two four akvo-section-gap bg_image">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="banner-inner-two-content">
+                                        <h1 class="title">Boreholes<br></h1>
+                                        <p class="pre-title"><span>Drilling, Electric & Solar Borehole Pumps</span></p>
+                                        <p class="disc">
+                                            End-to-end borehole solutions including professional drilling, pump installation, and maintenance.
+                                            Reliable access to clean water powered by electric or solar technology.
+                                        </p>
+                                        <a href="#" class="akvo-btn btn-primary btn-white">View Boreholes</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  banner area end -->
+                </div>
+                <!-- Solar Equipment -->
+                <div class="swiper-slide">
+                    <!--  banner area start -->
+                    <div class="akvo-banner-area-two five akvo-section-gap bg_image">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="banner-inner-two-content">
+                                        <h1 class="title">Solar Equipment<br></h1>
+                                        <p class="pre-title"><span>Solar Panels, Lights, Batteries, & Inverters</span></p>
+                                        <p class="disc">
+                                            Power your home, farm, or business with reliable solar equipment. We supply high-quality panels, energy storage systems, lighting, and inverters for clean, efficient energy solutions.
+                                        </p>
+                                        <a href="#" class="akvo-btn btn-primary btn-white">View Equipment</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  banner area end -->
+                </div>
+                <!-- Generators -->
+                <div class="swiper-slide">
+                    <!--  banner area start -->
+                    <div class="akvo-banner-area-two six akvo-section-gap bg_image">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="banner-inner-two-content">
+                                        <h1 class="title">Generators<br></h1>
+                                        <p class="pre-title"><span>Both Diesel & Petrol</span></p>
+                                        <p class="disc">
+                                            Dependable power backup solutions for homes, businesses, and farms. We supply both diesel and petrol generators built for performance, efficiency, and durability.
+                                        </p>
+                                        <a href="#" class="akvo-btn btn-primary btn-white">View Generators</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  banner area end -->
+                </div>
+                <!-- Water Treatment -->
+                <div class="swiper-slide">
+                    <!--  banner area start -->
+                    <div class="akvo-banner-area-two seven akvo-section-gap bg_image">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="banner-inner-two-content">
+                                        <h1 class="title">Water Treatment<br></h1>
+                                        <p class="pre-title"><span>Filters, Reverse Osmosis & Chemicals</span></p>
+                                        <p class="disc">
+                                            Advanced water treatment solutions to ensure safe, clean, and reliable water. We provide filtration systems, reverse osmosis units, and treatment chemicals for homes, industries, and institutions.
+                                        </p>
+                                        <a href="#" class="akvo-btn btn-primary btn-white">Treatment Solutions</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  banner area end -->
+                </div>
+                <!-- Swimming Pools -->
+                <div class="swiper-slide">
+                    <!--  banner area start -->
+                    <div class="akvo-banner-area-two eight akvo-section-gap bg_image">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="banner-inner-two-content">
+                                        <h1 class="title">Swimming Pools<br></h1>
+                                        <p class="pre-title"><span>Design, Construction & Accessories</span></p>
+                                        <p class="disc">
+                                            Complete swimming pool solutions from design to construction. We offer quality pool equipment, accessories, and maintenance services for homes, hotels, and recreational centers.
+                                        </p>
+                                        <a href="#" class="akvo-btn btn-primary btn-white">Pool Solutions</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  banner area end -->
+                </div>
+                <!-- Repairs & Maintenance -->
+                <div class="swiper-slide">
+                    <!--  banner area start -->
+                    <div class="akvo-banner-area-two nine akvo-section-gap bg_image">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="banner-inner-two-content">
+                                        <h1 class="title">Repairs & Maintenance<br></h1>
+                                        <p class="pre-title"><span>State of the Art Workshop</span></p>
+                                        <p class="disc">
+                                            Offering professional repair and maintenance services for water pumps, solar systems, irrigation equipment, and more. Our fully equipped workshop ensures high-quality service and quick turnaround.
+                                        </p>
+                                        <a href="#" class="akvo-btn btn-primary btn-white">View Workshop</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--  banner area end -->
+                </div>
+            </div>
+            <div class="swiper-button-next"><i class="fa-light fa-chevron-right"></i></div>
+            <div class="swiper-button-prev"><i class="fa-light fa-chevron-left"></i></div>
+        </div>
+    </div>
+
+    <!--  about area start -->
+    <div class="akvo-about-area-two akvo-section-gap">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="left-thumbnail-about-area-two">
+                        <img src="assets/images/about/about.jpg" alt="about">
+                        <!-- <div class="small-image">
+                            <img src="assets/images/about/about-small-2.jpg" alt="small">
+                        </div> -->
+                        <div class="counter-about-area">
+                            <h2 class="counter title"><span class="odometer" data-count="5">00</span>+
+                            </h2>
+                            <span>Regional Branches</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt_sm--80 mt_md--80">
+                    <div class="about-inner-content-two">
+                        <div class="title-style-two left">
+                            <span class="bg-content">About Us</span>
+                            <span class="pre">About Us</span>
+                            <h2 class="title akvo-text-anime-style-1">
+                                Serving Communities with <br>
+                                Water & Energy Solutions
+                            </h2>
+                        </div>
+                        <div class="about-between-wrapper">
+                            <p class="disc align-justify">
+                                We specialize in delivering top-tier Irrigation, Water, and Energy Solutions.
+                                Our dedicated team is committed to providing high-quality products and reliable systems sourced from world-renowned
+                                manufacturers — ensuring maximum efficiency, durability, and performance.
+                            </p>
+                            <div class="check-wrapper-area">
+                                <div class="single-check">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <p>Sustainable Water Solutions</p>
+                                </div>
+                                <div class="single-check">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <p>Renewable Energy Solutions</p>
+                                </div>
+                                <div class="single-check">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <p>After Sales Services Support</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="call-and-sign-area two">
+                            <div class="call-area">
+                                <div class="icon">
+                                    <i class="fa-sharp fa-regular fa-phone-volume"></i>
+                                </div>
+                                <div class="information">
+                                    <span>Call us anytime</span>
+                                    <a href="#">
+                                        <h6 class="title">+256 56778.5678</h6>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="sign-area">
+                                <img src="assets/images/about/sign.svg" alt="">
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  about area end -->
+
+
+    <!--  service area start -->
+    <div class="akvo-service-area pt--40 pb--60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-style-two center">
+                        <span class="bg-content">Services</span>
+                        <span class="pre">Our Services</span>
+                        <h2 class="title akvo-text-anime-style-1">High Quality Services
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-2 mt--30">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="service-bg-style-one-wrapper">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="service-style-swiper-wrapper-two">
+                                    <div class="swiper mySwiper-service-1">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="single-service-signle-wrapper">
+                                                    <div class="icons">
+                                                        <img src="assets/images/service/irrigation.svg" class="home-services" alt="service">
+                                                    </div>
+                                                    <div class="information">
+                                                        <h5 class="title">Irrigation</h5>
+                                                        <p class="disc">
+                                                            Drip, Sprinkler, Center Pivot, Irriforce, Drag Hose, & Landscape.
+                                                            All designed to maximize water efficiency.
+                                                        </p>
+                                                        <a href="#" class="arrow-right">
+                                                            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                                                            <span>Read More</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="single-service-signle-wrapper">
+                                                    <div class="icons">
+                                                        <img src="assets/images/service/water-pumps.png" class="home-services" alt="service">
+                                                    </div>
+                                                    <div class="information">
+                                                        <h5 class="title">Water Pumps</h5>
+                                                        <p class="disc">
+                                                            Submersible, Surface, Booster, Solar, Dosing, & Pressure.
+                                                            All designed to ensure reliable water supply.
+                                                        </p>
+                                                        <a href="#" class="arrow-right">
+                                                            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                                                            <span>Read More</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="single-service-signle-wrapper">
+                                                    <div class="icons">
+                                                        <img src="assets/images/service/solar-equipment.png" class="home-services" alt="service">
+                                                    </div>
+                                                    <div class="information">
+                                                        <h5 class="title">Solar Equipment</h5>
+                                                        <p class="disc">
+                                                            Panels, Inverters, Controllers, Batteries, Lights, & Kits.
+                                                            All designed to deliver clean, dependable energy.
+                                                        </p>
+                                                        <a href="service-details.html" class="arrow-right">
+                                                            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                                                            <span>Read More</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="single-service-signle-wrapper">
+                                                    <div class="icons">
+                                                        <img src="assets/images/service/boreholes.png" class="home-services" alt="service">
+                                                    </div>
+                                                    <div class="information">
+                                                        <h5 class="title">Boreholes</h5>
+                                                        <p class="disc">
+                                                            Drilling, Casing, Pumping, Testing, Installation, & Maintenance.
+                                                            All designed to provide reliable and sustainable water sources.
+                                                        </p>
+                                                        <a href="#" class="arrow-right">
+                                                            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                                                            <span>Read More</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="single-service-signle-wrapper">
+                                                    <div class="icons">
+                                                        <img src="assets/images/service/generators.png" class="home-services" alt="service">
+                                                    </div>
+                                                    <div class="information">
+                                                        <h5 class="title">Generators</h5>
+                                                        <p class="disc">
+                                                            Diesel, Petrol, Solar Backup, Portable, Industrial, & Silent.
+                                                            All designed to guarantee uninterrupted power supply.
+                                                        </p>
+                                                        <a href="#" class="arrow-right">
+                                                            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                                                            <span>Read More</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="single-service-signle-wrapper">
+                                                    <div class="icons">
+                                                        <img src="assets/images/service/water-treatment.png" class="home-services" alt="service">
+                                                    </div>
+                                                    <div class="information">
+                                                        <h5 class="title">Water Treatment</h5>
+                                                        <p class="disc">
+                                                            Filtration, UV, Reverse Osmosis, Dosing, Softening, & Purification.
+                                                            All designed to deliver clean and safe water.
+                                                        </p>
+                                                        <a href="#" class="arrow-right">
+                                                            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                                                            <span>Read More</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="single-service-signle-wrapper">
+                                                    <div class="icons">
+                                                        <img src="assets/images/service/swimming-pools.png" class="home-services" alt="service">
+                                                    </div>
+                                                    <div class="information">
+                                                        <h5 class="title">Swimming Pools</h5>
+                                                        <p class="disc">
+                                                            Pumps, Filters, Heaters, Chlorinators, Skimmers, & Cleaners.
+                                                            All designed to ensure clear, safe, and refreshing water.
+                                                        </p>
+                                                        <a href="#" class="arrow-right">
+                                                            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                                                            <span>Read More</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="single-service-signle-wrapper">
+                                                    <div class="icons">
+                                                        <img src="assets/images/service/repairs.png" class="home-services" alt="service">
+                                                    </div>
+                                                    <div class="information">
+                                                        <h5 class="title">Repairs & Maintenance</h5>
+                                                        <p class="disc">
+                                                            nspection, Troubleshooting, Servicing, Replacements, Upgrades, & Support.
+                                                            All designed to keep systems running smoothly and efficiently.
+                                                        </p>
+                                                        <a href="#" class="arrow-right">
+                                                            <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                                                            <span>Read More</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-pagination"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  service area end -->
+
+    <div class="akvo-call-to-action-area-two bg_image">
+        <div class="container-full">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="cta-style-two-area">
+                                    <h3 class="title akvo-text-anime-style-1 quicksand-bold">
+                                        For all your Irrigation, Quality Water & <br>
+                                        Energy Solutions
+                                    </h3>
+                                    <a href="./contacts/" class="akvo-btn btn-primary btn-white">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="akvo-counter-up-area akvo-section-gap counter-bg">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="single-counter">
+                        <div class="icon">
+                            <img src="assets/images/counterup/icon/01.svg" alt="Business_counter">
+                        </div>
+                        <div class="counter-details">
+                            <h2 class="counter title"><span class="odometer" data-count="900">00</span>+
+                            </h2>
+                            <p class="disc">Successful Projects</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="single-counter pl--10 justify-content-center two pl--30">
+                        <div class="icon">
+                            <img src="assets/images/counterup/icon/02.svg" alt="Business_counter">
+                        </div>
+                        <div class="counter-details">
+                            <h2 class="counter title"><span class="odometer" data-count="1500">00</span>+
+                            </h2>
+                            <p class="disc">Esteemed Clients</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="single-counter pl--10 justify-content-center three pl--50 pl_md--10 pl_sm--0">
+                        <div class="icon">
+                            <img src="assets/images/counterup/icon/03.svg" alt="Business_counter">
+                        </div>
+                        <div class="counter-details">
+                            <h2 class="counter title"><span class="odometer" data-count="100">00</span>+
+                            </h2>
+                            <p class="disc">Valued Partners</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12">
+                    <div class="single-counter pl--10 four">
+                        <div class="icon">
+                            <img src="assets/images/counterup/icon/04.svg" alt="Business_counter">
+                        </div>
+                        <div class="counter-details">
+                            <h2 class="counter title"><span class="odometer" data-count="10">00</span>+
+                            </h2>
+                            <p class="disc">Regional Reach</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="akvo-gallery-area akvo-section-gap gallery-bg bg_image">
+        <div class="container pt--40">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-area-between-wrapper-gallery-project">
+                        <div class="title-style-two mb--40 left">
+                            <span class="bg-content">Projects</span>
+                            <span class="pre">Recent Projects</span>
+                            <h2 class="title akvo-text-anime-style-1">Recently Completed Projects</h2>
+                        </div>
+
+                        <div class="swiper-paginations"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="project-style-one-wrapper">
+
+                        <div class="swiper mySwiper-project-1">
+                            <div class="swiper-wrapper">
+                                <?php foreach ($projects as $project): ?>
+                                    <div class="swiper-slide">
+                                        <div class="project-style-one">
+                                            <a href="#" class="thumbnail">
+                                                <img src="assets/images/project/<?php echo htmlspecialchars($project['cover_image']) ?>" alt="project">
+                                            </a>
+                                            <div class="inner-content">
+                                                <a href="#">
+                                                    <h5 class="title"><?php echo htmlspecialchars($project['title']) ?></h5>
+                                                </a>
+                                                <span><?php echo htmlspecialchars($project['category']) ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="akvo-trusted-client akvo-section-gapBottom pt--40 mb--310">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title-area-client-client text-center">
+                        <p class="client-title">Our Trusted Partners</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="client-wrapper-one">
+                    <a href="#" data-animation="fadeInUp" data-delay="0.1" data-duration="1.2"><img src="./assets/images/partners/grundfos.png" alt="grundfos-ugandak-akvo"></a>
+                    <a href="#" data-animation="fadeInUp" data-delay="0.2" data-duration="1.2"><img src="assets/images/partners/genvik.png" alt="genvik-uganda-akvo"></a>
+                    <a href="#" data-animation="fadeInUp" data-delay="0.3" data-duration="1.2"><img src="assets/images/partners/lorentz.png" alt="lorentz-uganda-akvo"></a>
+                    <a href="#" data-animation="fadeInUp" data-delay="0.4" data-duration="1.2"><img src="assets/images/partners/solarborn.png" alt="solaborn-uganda-akvo"></a>
+                    <a href="#" data-animation="fadeInUp" data-delay="0.5" data-duration="1.2"><img src="assets/images/partners/genvik.png" alt="genvik-uganda-akvo"></a>
+                    <a href="#" data-animation="fadeInUp" data-delay="0.6" data-duration="1.2"><img src="assets/images/partners/jain.png" alt="jain-uganda-akvo"></a>
+                    <a href="#" data-animation="fadeInUp" data-delay="0.7" data-duration="1.2"><img src="assets/images/partners/yuzuak.png" alt="yuzuak-sprinklers-in-uganda-akvo-international"></a>
+                    <a href="#" data-animation="fadeInUp" data-delay="0.8" data-duration="1.2"><img src="assets/images/partners/launtop.png" alt="launtop-uganda-akvo"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="akvo-footer-area footer-two mt-dec-footer-map bg-footer-two bg_image">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="map-area-main-wrapper">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="map-area-main-footer-two">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7481953559336!2d32.6391716!3d0.339702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177db98929f6d673%3A0x4531b4e262de658d!2sThe%20Irrigation%20Hub%20-%20Akvo%20International%20Limited!5e0!3m2!1sen!2sug!4v1744113724026!5m2!1sen!2sug" width="625" height="625" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="map-information-2-footer">
+                                    <h5 class="title-main quicksand-regular">Contact Us</h5>
+                                    <img src="assets/images/footer/02.svg" alt="line" class="line">
+                                    <div class="contact-information-main-wrapper">
+                                        <div class="signle-contact-information">
+                                            <div class="icon">
+                                                <i class="fa-solid fa-phone"></i>
+                                            </div>
+                                            <div class="information-wrapper">
+                                                <span>Call us</span>
+                                                <a href="#">
+                                                    <h6 class="title">+256 393 243403</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="signle-contact-information">
+                                            <div class="icon">
+                                                <i class="fa-regular fa-envelope"></i>
+                                            </div>
+                                            <div class="information-wrapper">
+                                                <span>Email us</span>
+                                                <a href="#">
+                                                    <h6 class="title">info@akvointernational.com</h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="signle-contact-information">
+                                            <div class="icon">
+                                                <i class="fa-sharp fa-solid fa-location-dot"></i>
+                                            </div>
+                                            <div class="information-wrapper">
+                                                <span>Address</span>
+                                                <a href="#">
+                                                    <h6 class="title">
+                                                        <span>Plot 960 Kireka-Mutungo Rd</span>
+                                                        <span>P.O Box 70959 Clock Tower</span>
+                                                    </h6>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container bg-shape-f1">
+            <div class="row pt--120 pt_sm--80 pb--80 pb_sm--40">
+
+                <div class="col-xl-4 col-md-6 col-sm-12 col-12">
+                    <div class="footer-one-single-wized mid-bg">
+                        <div class="wized-title">
+                            <h5 class="title">Opening Hours</h5>
+                            <img src="assets/images/footer/01.svg" alt="finbiz_footer">
+                        </div>
+                        <div class="opening-time-inner">
+                            <div class="single-opening">
+                                <p class="day quicksand-regular">Monday</p>
+                                <p class="time">08.00 - 17:00 Hrs</p>
+                            </div>
+                            <div class="single-opening">
+                                <p class="day quicksand-regular">Saturday</p>
+                                <p class="time">08:00 - 15.00 Hrs</p>
+                            </div>
+                            <div class="single-opening mb--30 mb_sm--10">
+                                <p class="day quicksand-regular">Sunday</p>
+                                <p class="time">Closed</p>
+                            </div>
+                            <a href="./contacts/" class="akvo-btn btn-primary btn-white">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-6 col-sm-12 col-12 pl--50 pl_sm--15">
+                    <div class="footer-one-single-wized">
+                        <div class="wized-title">
+                            <h5 class="title">Quick Links</h5>
+                            <img src="assets/images/footer/01.svg" alt="finbiz_footer">
+                        </div>
+                        <?php include_once('./includes/quick-links.php'); ?>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-6 col-sm-12 col-12">
+                    <div class="footer-one-single-wized margin-left-65">
+                        <div class="wized-title">
+                            <h5 class="title">Get Updates</h5>
+                            <img src="assets/images/footer/01.svg" alt="finbiz_footer">
+                        </div>
+                        <div class="body">
+                            <div class="update-wrapper">
+                                <p class="disc">
+                                    Subcribe to our Newsletter. We promise not to spam you.
+                                </p>
+                                <form class="email-footer-area">
+                                    <input type="email" placeholder="Enter Email Address" required="">
+                                    <button type="submit" disabled><i class="fas fa-location-arrow"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="akvo-copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="text-center">
+                            <p>&copy Copyright
+                                <script>
+                                    document.write(
+                                        new Date().getFullYear()
+                                    )
+                                </script>. All rights reserved. Akvo International Ltd
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="side-bar" class="side-bar header-two">
+        <button class="close-icon-menu"><i class="far fa-times"></i></button>
+        <div class="akvo-sidebar-menu-desktop">
+            <a class="logo-1" href="./"><img class="logo" src="assets/images/logo/logo.png" alt="akvo-international-logo"></a>
+            <div class="body d-none d-xl-block">
+                <p class="disc align-justify">
+                    We deliver sustainable water and energy solutions across Uganda, with a focus on irrigation, clean water, and renewable energy.
+                    Our work empowers communities and businesses through reliable, high-quality technologies designed for long-term impact.
+                </p>
+                <div class="get-in-touch">
+                    <div class="h6 title">Get In Touch</div>
+                    <div class="wrapper">
+                        <div class="single">
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="#">0393 243 403</a>
+                        </div>
+                        <div class="single">
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/0708068655" target="_blank">0708 068 655</a>
+                        </div>
+                        <div class="single">
+                            <i class="fas fa-envelope"></i>
+                            <a href="#">info@akvointernational.com</a>
+                        </div>
+                        <div class="single">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <a href="#">Plot 960 Kireka-Mutungo Rd</a>
+                        </div>
+                    </div>
+                    <div class="social-wrapper-two menu">
+                        <a href="https://x.com/Akvointltd/" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/akvointernational" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/akvointernational/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/akvo-international-limited/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu d-block d-xl-none">
+            <nav class="nav-main mainmenu-nav mt--30">
+                <ul class="mainmenu metismenu" id="mobile-menu-active">
+                    <li class="">
+                        <a href="./" class="main" aria-expanded="false">Home</a>
+                    </li>
+                    <li class="has-droupdown">
+                        <a href="#" class="main" aria-expanded="false">Services</a>
+                        <ul class="submenu mm-collapse" style="height: 0px;">
+                            <li><a href="#">Irrigation</a></li>
+                            <li><a href="#">Water Pumps</a></li>
+                            <li><a href="#">Solar Equipment</a></li>
+                            <li><a href="#">Boreholes</a></li>
+                            <li><a href="#">Generators</a></li>
+                            <li><a href="#">Water Treatment</a></li>
+                            <li><a href="#">Swimming Pools</a></li>
+                            <li><a href="#">Repairs & Maintenance</a></li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="#" class="main" aria-expanded="false">Shop</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="main" aria-expanded="false">Projects</a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="main" aria-expanded="false">Blog</a>
+                    </li>
+                    <li>
+                        <a href="./contacts/" class="main" aria-expanded="false">Contact Us</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="social-wrapper-one">
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/akvointernational/" target="_blank">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://x.com/Akvointltd/" target="_blank">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://instagram.com/akvointernational/" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/akvo-international-limited/" target="_blank">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- offcanvase search -->
+    <!-- <div class="search-input-area">
+        <div class="container">
+            <div class="search-input-inner">
+                <div class="input-div">
+                    <input class="search-input autocomplete" type="text" placeholder="Search by keyword or #">
+                    <button><i class="far fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="close" class="search-close-icon"><i class="far fa-times"></i></div>
+    </div> -->
+    <div id="anywhere-home" class="">
+    </div>
+
+    <!-- progress area start -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 307.919;">
+            </path>
+        </svg>
+    </div>
+    <!-- progress area end -->
+    <script src="assets/js/plugins/jquery.js"></script>
+
+    <script src="assets/js/plugins/odometer.js"></script>
+    <script src="assets/js/plugins/jquery-appear.js"></script>
+
+
+    <script src="assets/js/plugins/gsap.js"></script>
+    <script src="assets/js/plugins/split-text.js"></script>
+    <script src="assets/js/plugins/scroll-trigger.js"></script>
+    <script src="assets/js/plugins/smooth-scroll.js"></script>
+    <script src="assets/js/plugins/metismenu.js"></script>
+    <script src="assets/js/plugins/popup.js"></script>
+
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/plugins/swiper.js"></script>
+    <script src="assets/js/plugins/contact.form.js"></script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+/* Carousel Container */
+#solarProductCarousel {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Carousel Images */
+#solarProductCarousel .carousel-item img {
+    max-height: 300px; /* Adjust height as needed */
+    object-fit: contain; /* Ensures images are not stretched */
+    margin: 0 auto; /* Centers the image */
+}
+
+/* Carousel Navigation Buttons */
+#solarProductCarousel .carousel-control-prev,
+#solarProductCarousel .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Carousel Navigation Icons */
+#solarProductCarousel .carousel-control-prev-icon,
+#solarProductCarousel .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+}
+@media (max-width: 768px) {
+    #solarProductCarousel .carousel-item img {
+        max-height: 200px; /* Smaller height on mobile */
+    }
+}
